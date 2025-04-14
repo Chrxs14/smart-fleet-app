@@ -8,5 +8,7 @@ services:
     ports:
       - "4200:4200"   # Mapea el puerto 4200
     volumes:
-      - ./:/app        # Monta el código fuente para hot-reload
+      - ./:/app       # Monta el código para hot-reload
       - /app/node_modules  # Evita sobrescribir node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Mejora hot-reload en Docker
